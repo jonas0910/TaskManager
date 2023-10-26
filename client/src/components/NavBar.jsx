@@ -10,14 +10,14 @@ function NavBar() {
         }>
             <h1 className="text-2xl font-bold">Task Manager</h1>
         </Link>
-        <ul className="flex gap-x-2">
+        <ul className="opciones">
             {
                 isAuthenticated ? (
                     <>
                         <li>
                             Welcome <b> {user.username}</b>
                         </li>
-                        <li className='bg-indigo-500 px-4 py-1 rounded-sm'>
+                        <li>
                             <Link to="/add-task">Add Task</Link>
                         </li>
                         <li>
@@ -27,10 +27,10 @@ function NavBar() {
                 ) : (
                     <>
                         <li>
-                            <Link to="/login" className='bg-indigo-500 px-4 py-1 rounded-sm'>Login</Link>
+                            <Link to="/login" >Login</Link>
                         </li>
                         <li>
-                            <Link to="/register" className='bg-indigo-500 px-4 py-1 rounded-sm'>Register</Link>
+                            <Link to="/register" >Register</Link>
                         </li>
                     </>
                 )
