@@ -1,11 +1,3 @@
-:root{
-    --primary-color: #62355c;
-    --secondary-color: #64c3b3;
-    --tertiary-color: #ffffff;
-    --quaternary-color: #938993;
-    --page-background-color: #1d0f1b;
-
-}
 
 .contenedor-principal{
     display: flex;
@@ -16,13 +8,13 @@
     margin: 10px;
     border-radius: 20px;
     background-color: var(--page-background-color);
+    
 }
 
 .opciones{
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 40px;
     list-style: none;
     padding-left: 0;
 }

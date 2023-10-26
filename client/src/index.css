@@ -1,8 +1,17 @@
+:root{
+  --primary-color: #62355c;
+  --secondary-color: #64c3b3;
+  --tertiary-color: #ffffff;
+  --quaternary-color: #938993;
+  --page-background-color: #202020;
+  --background: #1d0f1b;
 
+}
 
 body{
-  background-color: #202020;
+  background-color: var(--background);
   color: whitesmoke;
+  margin: 0;
 }
 
 a{

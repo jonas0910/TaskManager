@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import './styles/NavBar.css'
 
 function NavBar() {
     const {isAuthenticated,logout, user} = useAuth()
   return (
-    <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
+    <nav className="nav">
         <Link to={
             isAuthenticated ? "/tasks" : "/"
         }>
