@@ -1,0 +1,6 @@
+.contenedor-tareas{
+    padding: 0 auto;
+    display: grid;
+    height: auto;
+    grid-template-columns: auto auto auto;
+}
