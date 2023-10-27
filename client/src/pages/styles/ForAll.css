@@ -57,7 +57,7 @@
     width: 300px;
 }
 
-.formulario input{
+.formulario input, textarea{
     margin: 10px 0 10px 0;
     padding: 5px;
     width: 80%;
@@ -65,11 +65,25 @@
     border: none;
     color: var(--tertiary-color);
     border-bottom: 1px solid var(--secondary-color);
+    resize: none;
 }
 
-.formulario input:focus{
+.formulario input,textarea:focus{
     outline: none;
 }
+
+.formulario textarea::-webkit-scrollbar{
+    width: 5px;
+    
+}
+
+.formulario textarea::-webkit-scrollbar-thumb{
+    width: 5px;
+    background-color: var(--secondary-color);
+    cursor: pointer;
+}
+
+
 
 .formulario button{
     margin-top: 20px;

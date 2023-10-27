@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useTasks } from "../context/TaskContext";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import "./styles/ForAll.css";
 import utc from "dayjs/plugin/utc";
 import dayjs from "dayjs";
 dayjs.extend(utc);
@@ -35,24 +36,24 @@ function TaskFormPage() {
   });
   return (
     <div className="contenedor-principal">
-      <div className="contenedor-form">
-      <form onSubmit={onSubmit}>
-        <label htmlFor="title">Title</label>
+      <div>
+      <form onSubmit={onSubmit} className="formulario">
+        <label htmlFor="title">Título</label>
         <input
           type="text"
-          placeholder="Title"
+          placeholder="Titulo"
           {...register("title")}
           autoFocus
           className=""
         />
-        <label htmlFor="dscription">Description</label>
+        <label htmlFor="dscription">Descripción</label>
         <textarea
           rows="3"
-          placeholder="Desccription"
+          placeholder="Descripción"
           {...register("description")}
           className=""
         ></textarea>
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date">Fecha</label>
         <input
           type="date"
           {...register("date")}
