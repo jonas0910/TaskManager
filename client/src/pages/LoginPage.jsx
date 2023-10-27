@@ -26,31 +26,29 @@ function LoginPage() {
           </div>
         ))}
 
-        <h1 className="">Login</h1>
-        <form onSubmit={onSubmit}>
+        <h1 className="titulo">Login</h1>
+        <form onSubmit={onSubmit} className="formulario">
           <input
             type="email"
             {...register("email", { required: true })}
-            className=""
-            placeholder="email"
+            placeholder="Correo electronico"
           />
           {errors.email && <span className="">Email is required</span>}
           <input
             type="password"
             {...register("password", { required: true })}
-            className=""
-            placeholder="password"
+            placeholder="Contraseña"
           />
           {errors.password && <p className="">Password is required</p>}
-          <button type="submit" className="">
+          <button type="submit" >
             {" "}
-            Logearse
+            Iniciar Sesion
           </button>
         </form>
         <p className="">
-          Dont have an account?{" "}
-          <Link to="/register" className="">
-            Register
+          ¿No tienes una cuenta?{" "}
+          <Link to="/register" >
+            Registrate
           </Link>
         </p>
       </div>

@@ -15,9 +15,9 @@ function NavBar() {
             {
                 isAuthenticated ? (
                     <>
-                        <li>
-                            Welcome <b> {user.username}</b>
-                        </li>
+                        
+                        <div className='bienvenida'> Bienvenido <b> {user.username}</b></div>
+                        
                         <li>
                             <Link to="/add-task">Add Task</Link>
                         </li>

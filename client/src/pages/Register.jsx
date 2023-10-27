@@ -31,13 +31,13 @@ function RegisterPage() {
           </div>
         ))}
 
-        <h1 className="">Register</h1>
-        <form onSubmit={onSubmit}>
+        <h1 className="titulo">Register</h1>
+        <form onSubmit={onSubmit} className="formulario">
           <input
             type=""
             {...register("username", { required: true })}
             className=""
-            placeholder="username"
+            placeholder="Nombre de usuario"
           />
           {errors.username && <span className="">Username is required</span>}
 
@@ -45,24 +45,24 @@ function RegisterPage() {
             type="email"
             {...register("email", { required: true })}
             className=""
-            placeholder="email"
+            placeholder="Correo electronico"
           />
           {errors.email && <span className="">Email is required</span>}
           <input
             type="password"
             {...register("password", { required: true })}
             className=""
-            placeholder="password"
+            placeholder="Contraseña"
           />
           {errors.password && <p className="t">Password is required</p>}
           <button type="submit" className="">
-            Register
+            Registrarse
           </button>
         </form>
         <p className="">
-          Already have an account?{" "}
+          ¿Ya tienes una cuenta?{" "}
           <Link to="/login" className="">
-            Login
+            Inicie Sesión
           </Link>
         </p>
       </div>

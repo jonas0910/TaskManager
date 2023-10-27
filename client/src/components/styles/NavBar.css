@@ -8,5 +8,9 @@
     position: sticky;
     top: 0;
     z-index: 10;
+}
 
+.bienvenida{
+    font-size: 20px;
+    margin-right: 40px;
 }

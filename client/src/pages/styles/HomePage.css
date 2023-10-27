@@ -1,18 +1,19 @@
 img{
-    height: 500px;
+    max-width: 500px;
+    margin-left: 100px;
 }
 
 .bienvenido{
-    font-size: 50px;
+    font-size: 100px;
     color: var(--secondary-color);
     font-weight: bold;
-    
 }
 
 .contenido{
-    max-width: 500px;
+    max-width: 600px;
 }
 
 .contenido p{
     margin-bottom: 40px;
+    font-size: 20px;
 }
