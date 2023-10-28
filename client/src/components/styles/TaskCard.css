@@ -1,5 +1,5 @@
 .tarjeta{
-    width: 300px;
+    width: auto;
     height: auto;
     border: 1px solid var(--primary-color);
     border-radius: 10px;
@@ -13,7 +13,7 @@
 .cabecera{
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .opciones{
@@ -35,6 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 10px;
 }
 .editar{
     width: 30px;

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import {
   createTaskRequest,
   getTasksRequest,
@@ -6,11 +6,14 @@ import {
   getTaskRequest,
   updateTaskRequest,
 } from "../api/task.js";
+import { set } from "mongoose";
 
 const TaskContent = createContext();
 
+
 export const useTasks = () => {
   const context = useContext(TaskContent);
+  
   if (!context) {
     throw new Error("useTasks must be used within a TaskProvider");
   }
@@ -19,6 +22,17 @@ export const useTasks = () => {
 
 export function TaskProvider({ children }) {
   const [tasks, setTasks] = useState([]);
+  const [errors, setErrors] = useState([]);
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    if (errors.length > 0) {
+        const timer = setTimeout(() => {
+            setErrors([]);
+        }, 5000);
+        return () => clearTimeout(timer);
+    }
+}, [errors]);
 
   const getTasks = async () => {
     try {
@@ -26,12 +40,17 @@ export function TaskProvider({ children }) {
       setTasks(res.data);
     } catch (error) {
       console.log(error);
+      setErrors([error.response.data]);
     }
   };
 
   const createTask = async (task) => {
-    const res = await createTaskRequest(task);
-    console.log(res);
+    try {
+      await createTaskRequest(task);
+      setSuccess(true);
+    } catch (error) {
+      setErrors([error.response.data]);
+    }
   };
 
   const deleteTask = async (id) => {
@@ -40,6 +59,7 @@ export function TaskProvider({ children }) {
       setTasks(tasks.filter((task) => task._id !== id));
     } catch (error) {
       console.log(error);
+      setErrors([error.response.data]);
     }
   };
 
@@ -49,15 +69,17 @@ export function TaskProvider({ children }) {
       return res.data
     } catch (error) {
       console.log(error);
+      setErrors([error.response.data]);
     }
   };
 
   const updateTask = async (id,task) => {
     try {
       const res = await updateTaskRequest(id,task);
-      console.log(res);
+      setSuccess(true);
     } catch (error) {
       console.log(error);
+      setErrors([error.response.data]);
     }
   };
   return (
@@ -68,7 +90,10 @@ export function TaskProvider({ children }) {
         getTasks,
         deleteTask,
         getTask,
-        updateTask
+        updateTask,
+        errors,
+        success,
+        setSuccess
       }}
     >
       {children}

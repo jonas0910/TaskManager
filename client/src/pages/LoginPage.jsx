@@ -26,7 +26,7 @@ function LoginPage() {
           </div>
         ))}
 
-        <h1 className="titulo">Login</h1>
+        <h1 className="titulo">Iniciar Sesión</h1>
         <form onSubmit={onSubmit} className="formulario">
           <input
             type="email"
