@@ -49,6 +49,7 @@ export function TaskProvider({ children }) {
       await createTaskRequest(task);
       setSuccess(true);
     } catch (error) {
+      console.log([error.response.data])
       setErrors([error.response.data]);
     }
   };

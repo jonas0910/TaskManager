@@ -5,11 +5,10 @@ import { useEffect } from "react";
 import "./styles/ForAll.css";
 import utc from "dayjs/plugin/utc";
 import dayjs from "dayjs";
-import { set } from "mongoose";
 dayjs.extend(utc);
 
 function TaskFormPage() {
-  const { register, handleSubmit, setValue, formState: errors } = useForm();
+  const { register, handleSubmit, setValue, formState: {errors} } = useForm();
   const { createTask, getTask, updateTask, errors :tasksErrors, success, setSuccess } = useTasks();
   const navigate = useNavigate();
   const params = useParams();
@@ -28,14 +27,18 @@ function TaskFormPage() {
   }, []);
 
   const onSubmit = handleSubmit( (data) => {
+    
     if (params.id) {
       updateTask(params.id, {...data,date: dayjs.utc(data.date).format()});
     } else {
+      
       createTask({...data,date: dayjs.utc(data.date).format()});
+      
     }  
   });
 
   useEffect(() => {
+    console.log(errors);
     if(success){
       navigate("/tasks");
       setSuccess(false);
@@ -47,24 +50,40 @@ function TaskFormPage() {
     <div className="contenedor-principal">
       <div>
       {tasksErrors.map((error, i) => (
-          <div className="b" key={i}>
+          <div className="errors" key={i}>
             {error}
           </div>
       ))}
+      
+      
+      
       <form onSubmit={onSubmit} className="formulario">
         <label htmlFor="title">Título</label>
         <input
           type="text"
           placeholder="Titulo"
-          {...register("title", { required: true })}
+          {...register("title", { required: {value:true, message:"El titulo es requerido"}, maxLength: {value:30, message:"El titulo debe tener menos de 15 caracteres"}})}
           autoFocus
         />
-        <label htmlFor="dscription">Descripción</label>
+        {
+        errors.title &&
+        <div className="errors">
+          {errors.title.message}
+        </div>
+      }
+      
+        <label htmlFor="description">Descripción</label>
         <textarea
           rows="3"
           placeholder="Descripción"
-          {...register("description")}
+          {...register("description", {required: {value:true, message:"La descripción es requerida"}, maxLength: {value:500, message:"La descripción tiene un maximo de 500 caracteres"}})}
         ></textarea>
+        {
+        errors.description &&
+        <div className="errors">
+          {errors.description.message}
+        </div>
+        }
         <label htmlFor="date">Fecha</label>
         <input
           type="date"

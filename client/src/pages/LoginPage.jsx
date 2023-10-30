@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 function LoginPage() {
-  const { register, handleSubmit, formState: errors } = useForm();
+  const { register, handleSubmit, formState: {errors} } = useForm();
   const { signin, errors: signinErrors, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const onSubmit = handleSubmit((data) => {
@@ -21,25 +21,26 @@ function LoginPage() {
     <div className="contenedor-principal">
       <div className="contenedor-form">
         {signinErrors.map((error, i) => (
-          <div className="b" key={i}>
+          <div className="errors" key={i}>
             {error}
           </div>
         ))}
+        
 
         <h1 className="titulo">Iniciar Sesión</h1>
         <form onSubmit={onSubmit} className="formulario">
           <input
             type="email"
-            {...register("email", { required: true })}
+            {...register("email", { required: {value:true, message:"Correo electronico es requerido"} })}
             placeholder="Correo electronico"
           />
-          {errors.email && <span className="">Email is required</span>}
+          {errors.email && <span className="errors">Email is required</span>}
           <input
             type="password"
-            {...register("password", { required: true })}
+            {...register("password", { required: {value:true, message:"Contraseña es requerida"} })}
             placeholder="Contraseña"
           />
-          {errors.password && <p className="">Password is required</p>}
+          {errors.password && <p className="errors">Password is required</p>}
           <button type="submit" >
             {" "}
             Iniciar Sesion

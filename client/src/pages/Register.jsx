@@ -26,10 +26,11 @@ function RegisterPage() {
     <div className="contenedor-principal">
       <div className="contenedor-form">
         {RegisterErrors.map((error, i) => (
-          <div className="" key={i}>
+          <div className="errors" key={i}>
             {error}
           </div>
         ))}
+        
 
         <h1 className="titulo">Register</h1>
         <form onSubmit={onSubmit} className="formulario">
@@ -39,22 +40,20 @@ function RegisterPage() {
             className=""
             placeholder="Nombre de usuario"
           />
-          {errors.username && <span className="">Username is required</span>}
+          {errors.username && <span className="errors">Nombre de usuario requerido</span>}
 
           <input
             type="email"
             {...register("email", { required: true })}
-            className=""
             placeholder="Correo electronico"
           />
-          {errors.email && <span className="">Email is required</span>}
+          {errors.email && <span className="errors">Correo electronico requerido</span>}
           <input
             type="password"
             {...register("password", { required: true })}
-            className=""
             placeholder="Contraseña"
           />
-          {errors.password && <p className="t">Password is required</p>}
+          {errors.password && <p className="errors">Se requiere de una contraseña</p>}
           <button type="submit" className="">
             Registrarse
           </button>

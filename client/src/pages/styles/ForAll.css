@@ -96,3 +96,9 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+.errors{
+    color: brown;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
