@@ -8,7 +8,7 @@ import cors from "cors";
 const app=express();
 
 app.use(cors({
-    origin:"https://task-manager-front-611p.onrender.com/login",
+    origin:"https://task-manager-front-611p.onrender.com/",
     credentials:true,
 }));
 app.use(express.json());
