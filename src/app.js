@@ -9,6 +9,7 @@ const app=express();
 
 app.use(cors({
     origin:"https://task-manager-front-611p.onrender.com",
+    //origin:"http://localhost:5173",
     credentials:true,
 }));
 app.use(express.json());
