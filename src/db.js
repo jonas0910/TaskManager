@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import {MongoClient, ServerApiVersion} from 'mongodb';
 
-const uri = "mongodb+srv://jonathan:Jse9bUhRAaeu1F6t@cluster0.p9bb3sh.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://jonathan:Jse9bUhRAaeu1F6t@cluster0.p9bb3sh.mongodb.net/cluster0?retryWrites=true&w=majority";
 
 
 const client = new MongoClient(uri, {
