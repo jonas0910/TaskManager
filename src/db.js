@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
-const { MongoClient, ServerApiVersion } = require('mongodb');
+import {MongoClient, ServerApiVersion} from 'mongodb';
+
 const uri = "mongodb+srv://jonathan:Jse9bUhRAaeu1F6t@cluster0.p9bb3sh.mongodb.net/?retryWrites=true&w=majority";
 
 
@@ -31,4 +32,3 @@ export const connectDB = async () => {
 
 }
 
-run().catch(console.dir);
