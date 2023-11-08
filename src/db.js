@@ -14,10 +14,7 @@ import mongoose from 'mongoose';
 
 export const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb+srv://jonathan:HhqXgZ5AT51CfTib@cluster0.p9bb3sh.mongodb.net/?retryWrites=true&w=majority",{
-            useCreateIndex:true,
-            UsenewUrlParser:true,
-        });
+        await mongoose.connect("mongodb+srv://jonathan:HhqXgZ5AT51CfTib@cluster0.p9bb3sh.mongodb.net/cluster0?retryWrites=true&w=majority");
         console.log('>>>DB is connected');
     } catch (error) {
         console.log(error);
