@@ -7,8 +7,8 @@ export function createAccessToken(payload) {
             TOKEN_SECRET, {
                 expiresIn: "5h"
         }, (err, token) => {
-            if (err) { reject(err) } else {
-                resolve(token)
+            if (err) { reject(err); console.log(err)} else {
+                resolve(token); console.log(token)
             }
         });
     })
