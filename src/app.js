@@ -13,7 +13,7 @@ app.use(cors({
     credentials:true,
     accessControlAllowCredentials:true,
     headers : {
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": ["https://task-manager-front-611p.onrender.com","http://localhost:5173"],
         "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE",
         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
     } 
