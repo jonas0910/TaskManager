@@ -10,7 +10,7 @@ const app=express();
 app.use(cors({
     origin:["https://task-manager-front-611p.onrender.com","http://localhost:5173"],
     methods:['GET','POST','PUT','DELETE'],
-    credentials:'include',
+    credentials:include,
     accessControlAllowCredentials:true,
     withCredentials: true,
 }));
