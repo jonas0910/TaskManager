@@ -12,7 +12,7 @@ app.use(cors({
     methods:['GET','POST','PUT','DELETE'],
     credentials:true,
     accessControlAllowCredentials:true,
-    credentials: 'include',
+    withCredentials: true,
 }));
 app.use(express.json());
 app.use(morgan('dev'));
