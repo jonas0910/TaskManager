@@ -58,7 +58,8 @@ export const login = async (req, res) => {
         res.json({
             id: userFound._id,
             username: userFound.username,
-            email: userFound.email
+            email: userFound.email,
+            "token":token
         });
     } catch (error) {
         console.log(error);
